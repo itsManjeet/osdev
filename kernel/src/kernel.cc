@@ -15,6 +15,8 @@ void _start(void* multiboot)
 	devices::timer::initialize(10);
 	
 	devices::keyboard::initialize();
+
+	//asm volatile("int $0x3");
 	
 	//shell::initialize();
 	for(;;);

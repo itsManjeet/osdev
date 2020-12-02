@@ -6,7 +6,7 @@ using namespace rlxos::kernel;
 uint32_t __ticks = 0;
 uint32_t __sub_ticks = 0;
 
-static void __timer_cb(rlxos::cpu::registers_t r)
+static void __timer_cb(rlxos::cpu::registers_t* r)
 {
     __sub_ticks++;
     

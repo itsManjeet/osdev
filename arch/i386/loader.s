@@ -151,50 +151,59 @@ X86_IRQ 15, 47
 _X86_ISR_COMMON:
     pusha
 
-	mov ax, ds
-	push eax
-
+    push ds
+    push es
+    push fs
+    push gs
+    
 	mov ax, 0x10
+    
 	mov ds, ax
-	mov es, ax
-	mov fs, ax
-	mov gs, ax
-
-	call _X86_ISR_CB
-
+    mov fs, ax
+    mov gs, ax
+    
+	mov eax, esp
+    push eax
+    
+	mov eax, _X86_ISR_CB
+    call eax
+    
 	pop eax
-	mov ds, ax
-	mov es, ax
-	mov fs, ax
-	mov gs, ax
-
-	popa
+    pop gs
+    pop fs
+    pop es
+    pop ds
+    popa
+    
 	add esp, 8
-	sti
-	iret
-
+    iret
 [EXTERN _X86_IRQ_CB]
 _X86_IRQ_COMMON:
     pusha
-
-	mov ax, ds
-	push eax
-
+    
+	push ds
+    push es
+    push fs
+    push gs
+    
 	mov ax, 0x10
-	mov ds, ax
-	mov es, ax
-	mov fs, ax
-	mov gs, ax
+    mov ds, ax
+    mov es, ax
+    mov fs, ax
+    mov gs, ax
+    
+	mov eax, esp
+    push eax
+    
+	mov eax, _X86_IRQ_CB
+    call eax
+    
+	pop eax
+    pop gs
+    pop fs
+    pop es
+    pop ds
 
-	call _X86_IRQ_CB
-
-	pop ebx
-	mov ds, bx
-	mov es, bx
-	mov fs, bx
-	mov gs, bx
-
-	popa
-	add esp, 8
-	sti
-	iret
+    popa
+    add esp, 8
+    iret

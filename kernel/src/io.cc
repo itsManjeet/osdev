@@ -1,4 +1,5 @@
 #include <kernel/kernel.h>
+#include <kernel/cpu/rtc.h>
 
 using namespace rlxos::kernel;
 
@@ -23,7 +24,9 @@ io::process(char* fmt, ...)
 {
     va_list arg;
     x86::vga::set_color(x86::vga::color::LIGHT_MAGENTA);
-    io::print(":: process :: ");
+
+    cpu::rtc::data_t date_time = cpu::rtc::read();
+    io::print("[%d:%d:%d] ",date_time.hour, date_time.min, date_time.sec);
 
     va_start(arg, fmt);
     x86::vga::set_color(x86::vga::color::LIGHT_GRAY);

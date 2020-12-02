@@ -19,7 +19,8 @@ $(KERNEL_SRC_DIR)/shell.o \
 $(KERNEL_SRC_DIR)/sys/memory.o \
 $(KERNEL_SRC_DIR)/devices/timer.o \
 $(KERNEL_SRC_DIR)/devices/keyboard.o \
-$(KERNEL_SRC_DIR)/cpu/interrupts.o
+$(KERNEL_SRC_DIR)/cpu/interrupts.o \
+$(KERNEL_SRC_DIR)/cpu/rtc.o
 
 KERNEL_OBJS=\
 $(KERNEL_ARCH_OBJS) \

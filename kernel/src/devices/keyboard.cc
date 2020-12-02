@@ -101,7 +101,7 @@ unsigned char __key_map[128] = {
 //extern "C" void __put_char_in_shell(char c);
 
 static 
-void __kernel_cb(rlxos::cpu::registers_t) {
+void __kernel_cb(rlxos::cpu::registers_t* r) {
     unsigned char scanCode = inb(READ_PORT);
 
     
@@ -113,6 +113,7 @@ void __kernel_cb(rlxos::cpu::registers_t) {
         //io::print("keypress");
 
     }
+
 }
 
 void

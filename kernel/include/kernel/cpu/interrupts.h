@@ -6,7 +6,7 @@
 #include "registers.h"
 
 namespace rlxos::kernel::interrupt {
-    typedef void(*func_t)(rlxos::cpu::registers_t);
+    typedef void(*func_t)(rlxos::cpu::registers_t*);
     void install(uint8_t, func_t);
 }
 
