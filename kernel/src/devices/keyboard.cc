@@ -109,8 +109,9 @@ void __kernel_cb(rlxos::cpu::registers_t* r) {
     if (scanCode & 0x80) {
       //io::print("Shift press");
     } else {
-        x86::vga::write(__key_map[scanCode]);
-        //io::print("keypress");
+        if (shell::is_enabled()) {
+          shell::put_char(__key_map[scanCode]);
+        }
 
     }
 

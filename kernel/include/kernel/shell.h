@@ -3,6 +3,8 @@
 
 namespace rlxos::kernel::shell {
     void initialize();
+    void put_char(char c);
+    int is_enabled();
 }
 
 

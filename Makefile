@@ -6,7 +6,7 @@ ARCH_DIR=arch/$(ARCH)
 include $(ARCH_DIR)/make.config
 
 CFLAGS= -nostdlib -nostdinc -fno-builtin -fno-stack-protector -m32 -I kernel/include -I $(ARCH_DIR)
-CXXFLAGS = $(CFLAGS) -ffreestanding -O2 -Wall -Wextra -fno-exceptions -fno-rtti -fpermissive -Wno-write-strings -Wno-narrowing
+CXXFLAGS = $(CFLAGS) -ffreestanding -Wall -Wextra -fno-exceptions -fno-rtti -fpermissive -Wno-write-strings -Wno-narrowing
 LDFLAGS=  -T $(ARCH_DIR)/link.ld
 ASFLAGS = -f elf32
 

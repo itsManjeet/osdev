@@ -18,6 +18,6 @@ void _start(void* multiboot)
 
 	//asm volatile("int $0x3");
 	
-	//shell::initialize();
+	shell::initialize();
 	for(;;);
 }
